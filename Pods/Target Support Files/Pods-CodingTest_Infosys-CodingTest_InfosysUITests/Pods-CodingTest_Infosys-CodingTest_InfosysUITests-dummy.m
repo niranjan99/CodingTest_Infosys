@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_CodingTest_Infosys_CodingTest_InfosysUITests : NSObject
+@end
+@implementation PodsDummy_Pods_CodingTest_Infosys_CodingTest_InfosysUITests
+@end
