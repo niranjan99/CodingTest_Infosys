@@ -1,6 +1,0 @@
-framework module Pods_CodingTest_Infosys_CodingTest_InfosysUITests {
-  umbrella header "Pods-CodingTest_Infosys-CodingTest_InfosysUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

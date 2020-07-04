@@ -7,8 +7,7 @@
 //
 
 import UIKit
-//let imageCache = NSCache<AnyObject, AnyObject>()
-//var imageURLString : String?
+
 var imageCache = [String: UIImage]()
    private let kLazyLoadMaxCacheImageSize = 20
 extension UIImageView {
@@ -19,6 +18,7 @@ extension UIImageView {
            imageCache[url] = image
        }
    public func downloadImageFromURL(_ urlString: String) {
+    self.image = nil
            if let cachedImage = cachedImageForURL(urlString) {
                self.image = cachedImage
                return
@@ -29,7 +29,7 @@ extension UIImageView {
             let session = URLSession.shared
             let downloadTask = session.downloadTask(with: url, completionHandler: { (retrievedURL, _, error) -> Void in
                 if error != nil {
-                    print("Error downloading \(url.absoluteString): \(error!.localizedDescription)") } else
+                    print(AppConstants.error + (url.absoluteString) + (error!.localizedDescription)) } else
                     if retrievedURL != nil {
                     if let data = try? Data(contentsOf: retrievedURL!) {
                         if let image = UIImage(data: data) {

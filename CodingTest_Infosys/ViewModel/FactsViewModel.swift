@@ -9,20 +9,25 @@ import UIKit
 class FactsViewModel: NSObject {
     let service = RequestService()
     var reloadList = { () -> Void in }
-    public var feedData: FeedsModel?
+    var showError = { (error: String) -> Void in }
+    var feedData: FeedsModel?
+
+// MARK: Service Call to get data from URL
     func loadData() {
        service.loadData { jsonArray in
                  switch jsonArray {
                  case .success(let response):
                     self.feedData = response
                     self.reloadList()
-                 case .failure:
-                     print("FAILED")
-                     self.reloadList()
+                 case .failure(let response):
+                    self.showError(response.localizedDescription)
                }
             }
     }
    }
+
+// MARK: UITableViewDelegate & UITableViewDataSource
+
    extension FactsViewModel: UITableViewDelegate {
        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
                      return UITableView.automaticDimension
@@ -33,10 +38,10 @@ class FactsViewModel: NSObject {
            return feedData?.rows?.count ?? 0
            }
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DataCell", for: indexPath) as? DataCell else {
-            return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.cellidentifier,
+                                                       for: indexPath) as? DataCell else { return UITableViewCell()
         }
         cell.setData = feedData?.rows?[indexPath.row]
         return cell
-           }
+    }
    }

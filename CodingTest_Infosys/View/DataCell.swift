@@ -62,6 +62,7 @@ class DataCell: UITableViewCell {
     addSubview(profileImage)
     addSubview(nameLabel)
     addSubview(detailedLabel)
+
     profileImage.translatesAutoresizingMaskIntoConstraints = false
     profileImage.topAnchor.constraint(equalTo: detailedLabel.bottomAnchor, constant: 0).isActive = true
     profileImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true
@@ -86,9 +87,5 @@ class DataCell: UITableViewCell {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
     }
 }

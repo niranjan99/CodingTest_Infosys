@@ -1,0 +1,6 @@
+framework module Pods_CodingTestInfosys {
+  umbrella header "Pods-CodingTestInfosys-umbrella.h"
+
+  export *
+  module * { export * }
+}
