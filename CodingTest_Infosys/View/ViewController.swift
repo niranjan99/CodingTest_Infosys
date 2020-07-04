@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         let contactsTableView = UITableView()
         var refreshControl = UIRefreshControl()
         var activityView = UIActivityIndicatorView()
+// MARK: ViewController Lifecycle
           override func viewDidLoad() {
              super.viewDidLoad()
             view.backgroundColor = .white

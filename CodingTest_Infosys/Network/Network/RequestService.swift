@@ -17,22 +17,20 @@ final class RequestService {
        var dataTask: URLSessionDataTask?
        var errorMessage = ""
     func loadData(completion: @escaping (Result<FeedsModel, ErrorResult>) -> Void) {
-    dataTask?.cancel()
-              guard let url = URL(string: movieUrl) else {
-                     return
-                 }
+         dataTask?.cancel()
+        guard let url = URL(string: movieUrl) else { return }
         let request = RequestFactory.request(method: .GET, url: url)
               let task = defaultSession.dataTask(with: request) { (data, _, error) in
                   if let error = error {
-                    self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
-                    completion(.failure(.network(string: "Error occured during request:" + error.localizedDescription)))
+                    self.errorMessage += AppConstants.dataError + error.localizedDescription
+                    completion(.failure(.network(string: AppConstants.requestError + error.localizedDescription)))
                       return
-                  }
+                  } else {
                     if let data = data {
                     let value = FeedsModel.parseObject(data: data)
-                    completion(value)
-                 }
+                    completion(value) }
+                }
            }
-              task.resume()
-          }
+        task.resume()
+    }
 }
