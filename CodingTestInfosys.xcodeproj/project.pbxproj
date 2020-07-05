@@ -564,6 +564,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SYSTEM_HEADER_SEARCH_PATHS = "pods/**";
 			};
@@ -618,6 +619,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SYSTEM_HEADER_SEARCH_PATHS = "pods/**";
 				VALIDATE_PRODUCT = YES;
@@ -644,7 +646,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: *";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "CodingTestInfosys/CodingTestInfosys-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/CodingTestInfosys-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_HEADER_SEARCH_PATHS = "pods/**";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -671,7 +673,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: *";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "CodingTestInfosys/CodingTestInfosys-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/CodingTestInfosys-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_HEADER_SEARCH_PATHS = "pods/**";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -692,7 +694,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.CodeChallenge.App.CodingTestInfosysTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CodingTest_Infosys/CodingTestInfosys/CodingTestInfosys-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/CodingTestInfosys-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodingTestInfosys.app/CodingTestInfosys";
@@ -713,7 +715,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.CodeChallenge.App.CodingTestInfosysTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CodingTest_Infosys/CodingTestInfosys/CodingTestInfosys-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/CodingTestInfosys-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodingTestInfosys.app/CodingTestInfosys";
