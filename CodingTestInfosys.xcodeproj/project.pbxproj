@@ -142,7 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				E2D13BF724B0AA6600A813F2 /* CodingTestInfosys.entitlements */,
-				E2CFE1E824AF3FC400DD68AF /* CodingTest_Infosys */,
+				E2CFE1E824AF3FC400DD68AF /* CodingTestInfosys */,
 				E2D13BDC24B0484100A813F2 /* CodingTestInfosysTests */,
 				E2CFE1E724AF3FC400DD68AF /* Products */,
 				AA429C50B5714CC79E7A019F /* Pods */,
@@ -159,7 +159,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E2CFE1E824AF3FC400DD68AF /* CodingTest_Infosys */ = {
+		E2CFE1E824AF3FC400DD68AF /* CodingTestInfosys */ = {
 			isa = PBXGroup;
 			children = (
 				E2CFE1E924AF3FC400DD68AF /* AppDelegate.swift */,
@@ -175,7 +175,7 @@
 				E2CFE1F724AF3FCA00DD68AF /* Info.plist */,
 				E2D13BA424B0356500A813F2 /* CodingTestInfosys-Bridging-Header.h */,
 			);
-			path = CodingTest_Infosys;
+			path = CodingTestInfosys;
 			sourceTree = "<group>";
 		};
 		E2CFE22324AF47E300DD68AF /* ViewModel */ = {
@@ -634,7 +634,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = H523SXXDH9;
-				INFOPLIST_FILE = CodingTest_Infosys/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CodingTestInfosys/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -644,7 +644,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: *";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "CodingTest_Infosys/CodingTestInfosys-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CodingTestInfosys/CodingTestInfosys-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_HEADER_SEARCH_PATHS = "pods/**";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -661,7 +661,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = H523SXXDH9;
-				INFOPLIST_FILE = CodingTest_Infosys/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CodingTestInfosys/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -671,7 +671,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: *";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "CodingTest_Infosys/CodingTestInfosys-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CodingTestInfosys/CodingTestInfosys-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_HEADER_SEARCH_PATHS = "pods/**";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -692,7 +692,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.CodeChallenge.App.CodingTestInfosysTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CodingTest_Infosys/CodingTestInfosys-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CodingTest_Infosys/CodingTestInfosys/CodingTestInfosys-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodingTestInfosys.app/CodingTestInfosys";
@@ -713,7 +713,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.CodeChallenge.App.CodingTestInfosysTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CodingTest_Infosys/CodingTestInfosys-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CodingTest_Infosys/CodingTestInfosys/CodingTestInfosys-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodingTestInfosys.app/CodingTestInfosys";

@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         let contactsTableView = UITableView()
         var refreshControl = UIRefreshControl()
         var activityView = UIActivityIndicatorView()
+
 // MARK: ViewController Lifecycle
           override func viewDidLoad() {
              super.viewDidLoad()
@@ -42,15 +43,6 @@ class ViewController: UIViewController {
 
        func initTableView() {
             view.addSubview(contactsTableView)
-    /* This code is giving a crash. could not able to find the issue at this time */
-    //        contactsTableView.mas_makeConstraints { (make: MASConstraintMaker!) in
-    //            make.left.mas_equalTo()(view.safeAreaLayoutGuide.leftAnchor)
-    //            make.top.mas_equalTo()(view.topAnchor)
-    //            make.right.mas_equalTo()(view.safeAreaLayoutGuide.rightAnchor)
-    //            make.bottom.mas_equalTo()(view.safeAreaLayoutGuide.bottomAnchor)
-    //            make.width.mas_equalTo()(0)
-    //            make.height.mas_equalTo()(0)
-    //        }
             contactsTableView.translatesAutoresizingMaskIntoConstraints = false
             contactsTableView.topAnchor.constraint(equalTo: view.topAnchor,
                                                    constant: 0).isActive = true
