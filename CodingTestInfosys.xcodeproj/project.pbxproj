@@ -31,6 +31,7 @@
 		E2D13BEF24B0491800A813F2 /* FeedsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D13BED24B0491800A813F2 /* FeedsModelTests.swift */; };
 		E2D13BFB24B21EAD00A813F2 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D13BF924B21EAD00A813F2 /* ListModel.swift */; };
 		E2D13BFC24B21EAD00A813F2 /* FeedsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D13BFA24B21EAD00A813F2 /* FeedsModel.swift */; };
+		E2D13C0324B3608F00A813F2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D13C0224B3608F00A813F2 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		E2D13BF724B0AA6600A813F2 /* CodingTestInfosys.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodingTestInfosys.entitlements; sourceTree = "<group>"; };
 		E2D13BF924B21EAD00A813F2 /* ListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		E2D13BFA24B21EAD00A813F2 /* FeedsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsModel.swift; sourceTree = "<group>"; };
+		E2D13C0224B3608F00A813F2 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		FD81F0B30FA639B6DCC9EDA8 /* Pods-CodingTest_Infosys.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingTest_Infosys.release.xcconfig"; path = "Target Support Files/Pods-CodingTest_Infosys/Pods-CodingTest_Infosys.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,6 +210,7 @@
 		E2CFE23224AF486E00DD68AF /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E2D13C0224B3608F00A813F2 /* Reachability.swift */,
 				E2CFE23324AF486E00DD68AF /* RequestService.swift */,
 				E2CFE23424AF486E00DD68AF /* Result.swift */,
 				E2CFE23524AF486E00DD68AF /* ErrorResult.swift */,
@@ -283,6 +286,7 @@
 				E2CFE1E224AF3FC400DD68AF /* Sources */,
 				E2CFE1E324AF3FC400DD68AF /* Frameworks */,
 				E2CFE1E424AF3FC400DD68AF /* Resources */,
+				095C18C6E8BFA1B016662BE9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -301,7 +305,6 @@
 				E2D13BD724B0484100A813F2 /* Sources */,
 				E2D13BD824B0484100A813F2 /* Frameworks */,
 				E2D13BD924B0484100A813F2 /* Resources */,
-				A20610CD4C6196A174698C45 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -373,6 +376,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		095C18C6E8BFA1B016662BE9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CodingTestInfosys/Pods-CodingTestInfosys-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CodingTestInfosys/Pods-CodingTestInfosys-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CodingTestInfosys/Pods-CodingTestInfosys-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9644BF95779938FCF9763B7B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -393,23 +413,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-		};
-		A20610CD4C6196A174698C45 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CodingTestInfosysTests/Pods-CodingTestInfosysTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CodingTestInfosysTests/Pods-CodingTestInfosysTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CodingTestInfosysTests/Pods-CodingTestInfosysTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		E2CFE24624AF851600DD68AF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -466,6 +469,7 @@
 				E2CFE22524AF47E300DD68AF /* FactsViewModel.swift in Sources */,
 				E2CFE23924AF486E00DD68AF /* RequestService.swift in Sources */,
 				E2D13BFC24B21EAD00A813F2 /* FeedsModel.swift in Sources */,
+				E2D13C0324B3608F00A813F2 /* Reachability.swift in Sources */,
 				E2CFE1EE24AF3FC400DD68AF /* ViewController.swift in Sources */,
 				E2CFE1EA24AF3FC400DD68AF /* AppDelegate.swift in Sources */,
 				E2CFE1EC24AF3FC400DD68AF /* SceneDelegate.swift in Sources */,

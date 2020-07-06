@@ -10,6 +10,8 @@ import UIKit
 
 final class DataCell: UITableViewCell {
  private var myViewHeightConstraint: NSLayoutConstraint!
+
+    /* Set data to the cell. */
  internal var setData: ListModel? {
            didSet {
                guard let contactItem = setData else {return}
@@ -26,6 +28,7 @@ final class DataCell: UITableViewCell {
                }
         }
        }
+        /* Arrange views in the cell*/
    private let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +41,7 @@ final class DataCell: UITableViewCell {
     }
         return view
     }()
+     /*Initialise the image view*/
    private let profileImage: UIImageView = {
         let img = UIImageView()
        img.contentMode = .scaleToFill
@@ -46,6 +50,7 @@ final class DataCell: UITableViewCell {
         img.clipsToBounds = true
         return img
     }()
+      /*Initialise name label*/
    private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 27)
@@ -53,6 +58,7 @@ final class DataCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+     /*Initialise detail label*/
    private let detailedLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17)
@@ -68,6 +74,7 @@ final class DataCell: UITableViewCell {
     addSubview(nameLabel)
     addSubview(detailedLabel)
 
+    /*Set Constraints to views in cell*/
     profileImage.translatesAutoresizingMaskIntoConstraints = false
     profileImage.topAnchor.constraint(equalTo: detailedLabel.bottomAnchor, constant: 0).isActive = true
     profileImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true

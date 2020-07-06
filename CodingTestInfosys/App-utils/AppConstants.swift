@@ -19,4 +19,5 @@ struct AppConstants {
      static let parceError = "Unable to parse FeedsModel results"
      static let dataError = "DataTask error: "
      static let requestError = "Error occured during request:"
+     static let internetError = "Internet not available"
 }

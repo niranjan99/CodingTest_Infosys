@@ -47,6 +47,6 @@ extension UIImageView {
             downloadTask.resume()
         }
     }
-    func cachedImageForURL(_ url: String) -> UIImage? { return imageCache[url] }
-    func clearCache() { imageCache.removeAll() }
+   private func cachedImageForURL(_ url: String) -> UIImage? { return imageCache[url] }
+   private func clearCache() { imageCache.removeAll() }
 }

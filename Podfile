@@ -4,14 +4,11 @@
 target 'CodingTestInfosys' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
-  # Pods for CodingTest_Infosys
-
+       pod 'SwiftLint', '=0.37.0'
+       pod 'Masonry'
   target 'CodingTestInfosysTests' do
     inherit! :search_paths
-    # Pods for testing
-      pod 'SwiftLint', '=0.37.0'
-      pod 'Masonry'
+   
   end
 
 end

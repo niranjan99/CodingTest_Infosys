@@ -12,17 +12,19 @@ import Foundation
     case decodingError
 }
 final class RequestService {
-       let movieUrl = AppConstants.serverPath+AppConstants.factsPath
-       let defaultSession = URLSession(configuration: .default)
-       var dataTask: URLSessionDataTask?
-       var errorMessage = ""
+      private let movieUrl = AppConstants.serverPath+AppConstants.factsPath
+      private let defaultSession = URLSession(configuration: .default)
+      private var dataTask: URLSessionDataTask?
+      private var errorMessage = ""
+
+    // MARK: Load Data from server
+
     func loadData(completion: @escaping (Result<FeedsModel, ErrorResult>) -> Void) {
          dataTask?.cancel()
         guard let url = URL(string: movieUrl) else { return }
         let request = RequestFactory.request(method: .GET, url: url)
               let task = defaultSession.dataTask(with: request) { (data, _, error) in
                   if let error = error {
-                    self.errorMessage += AppConstants.dataError + error.localizedDescription
                     completion(.failure(.network(string: AppConstants.requestError + error.localizedDescription)))
                       return
                   } else {

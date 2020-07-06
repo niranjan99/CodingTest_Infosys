@@ -26,10 +26,10 @@ class ViewController: UIViewController {
     private func setupView() {
             initTableView()
             showActivityIndicator()
-            viewModel.loadData()
             reloadTableView()
             refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
             contactsTableView.addSubview(refreshControl)
+            viewModel.loadData()
         }
 
 // MARK: Pull To Refresh
@@ -72,6 +72,7 @@ class ViewController: UIViewController {
 
 extension ViewController {
    private func reloadTableView() {
+    /* Reload the data when the data has been changed */
          viewModel.reloadList = { [weak self] ()  in
                     DispatchQueue.main.async {
                      self?.hideActivityIndicator()
@@ -93,6 +94,7 @@ extension ViewController {
 
 // MARK: Show/Hide ActivityIndicator
 extension ViewController {
+    /* Show Progress Indicator */
    private func showActivityIndicator() {
         if #available(iOS 13.0, *) {
             activityView = UIActivityIndicatorView(style: .large)
@@ -104,7 +106,7 @@ extension ViewController {
            activityView.startAnimating()
            contactsTableView.addSubview(activityView)
        }
-
+/* Hide progress Indicator */
    private func hideActivityIndicator() {
             activityView.stopAnimating()
        }
