@@ -6,14 +6,14 @@
 //  Copyright © 2020 Niranjan. All rights reserved.
 //
 import UIKit
-class FactsViewModel: NSObject {
-    let service = RequestService()
-    var reloadList = { () -> Void in }
-    var showError = { (error: String) -> Void in }
-    var feedData: FeedsModel?
+final class FactsViewModel: NSObject {
+   private let service = RequestService()
+   internal var reloadList = { () -> Void in }
+   internal var showError = { (error: String) -> Void in }
+   public var feedData: FeedsModel?
 
 // MARK: Service Call to get data from URL
-    func loadData() {
+   internal func loadData() {
        service.loadData { jsonArray in
                  switch jsonArray {
                  case .success(let response):

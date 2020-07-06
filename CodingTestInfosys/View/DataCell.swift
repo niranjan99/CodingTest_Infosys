@@ -8,9 +8,9 @@
 
 import UIKit
 
-class DataCell: UITableViewCell {
- var myViewHeightConstraint: NSLayoutConstraint!
-    var setData: ListModel? {
+final class DataCell: UITableViewCell {
+ private var myViewHeightConstraint: NSLayoutConstraint!
+ internal var setData: ListModel? {
            didSet {
                guard let contactItem = setData else {return}
                if let name = contactItem.title {
@@ -30,12 +30,17 @@ class DataCell: UITableViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true
+    if #available(iOS 13.0, *) {
         view.backgroundColor = .tertiarySystemBackground
+    } else {
+        // Fallback on earlier versions
+        view.backgroundColor = UIColor.groupTableViewBackground
+    }
         return view
     }()
    private let profileImage: UIImageView = {
         let img = UIImageView()
-        img.contentMode = .scaleAspectFill
+       img.contentMode = .scaleToFill
         img.translatesAutoresizingMaskIntoConstraints = false
         img.layer.cornerRadius = 5
         img.clipsToBounds = true
@@ -67,7 +72,7 @@ class DataCell: UITableViewCell {
     profileImage.topAnchor.constraint(equalTo: detailedLabel.bottomAnchor, constant: 0).isActive = true
     profileImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true
     profileImage.rightAnchor.constraint(equalTo: rightAnchor, constant: 0).isActive = true
-    profileImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
+    profileImage.heightAnchor.constraint(equalToConstant: 300).isActive = true
     profileImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
     profileImage.widthAnchor.constraint(equalToConstant: frame.size.width).isActive = true
 

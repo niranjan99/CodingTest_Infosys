@@ -10,10 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-        let viewModel = FactsViewModel()
-        let contactsTableView = UITableView()
-        var refreshControl = UIRefreshControl()
-        var activityView = UIActivityIndicatorView()
+       private let viewModel = FactsViewModel()
+       private let contactsTableView = UITableView()
+       private var refreshControl = UIRefreshControl()
+       private var activityView = UIActivityIndicatorView()
 
 // MARK: ViewController Lifecycle
           override func viewDidLoad() {
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
          }
 
 // MARK: Setup View
-        func setupView() {
+    private func setupView() {
             initTableView()
             showActivityIndicator()
             viewModel.loadData()
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
 
 // MARK: Initialising the tableview with Autolayouts
 
-       func initTableView() {
+      private func initTableView() {
             view.addSubview(contactsTableView)
             contactsTableView.translatesAutoresizingMaskIntoConstraints = false
             contactsTableView.topAnchor.constraint(equalTo: view.topAnchor,
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
             contactsTableView.translatesAutoresizingMaskIntoConstraints = false
             contactsTableView.allowsSelection = false
            }
-    func showAlert(title: String, message: String, actionTitle: String) {
+   private func showAlert(title: String, message: String, actionTitle: String) {
          let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
          alert.addAction(UIAlertAction(title: actionTitle, style: UIAlertAction.Style.default, handler: nil))
          self.present(alert, animated: true, completion: nil)
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
 // MARK: Load Data
 
 extension ViewController {
-    func reloadTableView() {
+   private func reloadTableView() {
          viewModel.reloadList = { [weak self] ()  in
                     DispatchQueue.main.async {
                      self?.hideActivityIndicator()
@@ -93,15 +93,19 @@ extension ViewController {
 
 // MARK: Show/Hide ActivityIndicator
 extension ViewController {
-    func showActivityIndicator() {
-           activityView = UIActivityIndicatorView(style: .large)
+   private func showActivityIndicator() {
+        if #available(iOS 13.0, *) {
+            activityView = UIActivityIndicatorView(style: .large)
+        } else {
+            activityView.style = .whiteLarge
+        }
            activityView.center = view.center
            activityView.hidesWhenStopped = true
            activityView.startAnimating()
            contactsTableView.addSubview(activityView)
        }
 
-    func hideActivityIndicator() {
+   private func hideActivityIndicator() {
             activityView.stopAnimating()
        }
 }
