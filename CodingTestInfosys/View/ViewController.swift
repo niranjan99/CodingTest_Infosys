@@ -44,15 +44,11 @@ class ViewController: UIViewController {
       private func initTableView() {
             view.addSubview(contactsTableView)
             contactsTableView.translatesAutoresizingMaskIntoConstraints = false
-            contactsTableView.topAnchor.constraint(equalTo: view.topAnchor,
-                                                   constant: 0).isActive = true
-            contactsTableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor,
-                                                    constant: 0).isActive = true
-            contactsTableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor,
-                                                     constant: 0).isActive = true
+            contactsTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+            contactsTableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 0).isActive = true
+            contactsTableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: 0).isActive = true
             contactsTableView.heightAnchor.constraint(equalToConstant: 0).isActive = true
-            contactsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
-                                                      constant: 0).isActive = true
+            contactsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
             contactsTableView.widthAnchor.constraint(equalToConstant: 0).isActive = true
             contactsTableView.register(DataCell.self, forCellReuseIdentifier: AppConstants.cellidentifier)
             contactsTableView.delegate = viewModel
@@ -82,12 +78,12 @@ extension ViewController {
                     }
     }
     // Handling the error
-    viewModel.showError = { [weak self] (error)  in
+    viewModel.showError = { [weak self] error  in
                  DispatchQueue.main.async {
                   self?.hideActivityIndicator()
                   self?.refreshControl.endRefreshing()
                   self?.showAlert(title: "Error", message: error, actionTitle: "OK")
-                }
+                 }
               }
             }
    }
@@ -98,7 +94,8 @@ extension ViewController {
    private func showActivityIndicator() {
         if #available(iOS 13.0, *) {
             activityView = UIActivityIndicatorView(style: .large)
-        } else {
+        }
+        else {
             activityView.style = .whiteLarge
         }
            activityView.center = view.center

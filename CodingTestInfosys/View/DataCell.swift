@@ -14,13 +14,14 @@ final class DataCell: UITableViewCell {
     /* Set data to the cell. */
  internal var setData: ListModel? {
            didSet {
-               guard let contactItem = setData else {return}
+               guard let contactItem = setData else { return }
                if let name = contactItem.title {
                    profileImage.image = UIImage(named: name)
                    nameLabel.text = name
                }
                 if let imageURL = contactItem.imageHref {
-                    profileImage.downloadImageFromURL(imageURL) } else {
+                    profileImage.downloadImageFromURL(urlString: imageURL) }
+ else {
                      profileImage.image = UIImage(named: "placeholder")
                  }
                if let desc = contactItem.description {
@@ -35,7 +36,8 @@ final class DataCell: UITableViewCell {
         view.clipsToBounds = true
     if #available(iOS 13.0, *) {
         view.backgroundColor = .tertiarySystemBackground
-    } else {
+    }
+    else {
         // Fallback on earlier versions
         view.backgroundColor = UIColor.groupTableViewBackground
     }
@@ -68,6 +70,7 @@ final class DataCell: UITableViewCell {
         label.lineBreakMode = .byTruncatingTail
         return label
     }()
+
    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     addSubview(profileImage)

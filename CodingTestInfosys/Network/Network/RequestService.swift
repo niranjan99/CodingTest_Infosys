@@ -12,7 +12,7 @@ import Foundation
     case decodingError
 }
 final class RequestService {
-      private let movieUrl = AppConstants.serverPath+AppConstants.factsPath
+      private let movieUrl = AppConstants.serverPath + AppConstants.factsPath
       private let defaultSession = URLSession(configuration: .default)
       private var dataTask: URLSessionDataTask?
       private var errorMessage = ""
@@ -23,16 +23,17 @@ final class RequestService {
          dataTask?.cancel()
         guard let url = URL(string: movieUrl) else { return }
         let request = RequestFactory.request(method: .GET, url: url)
-              let task = defaultSession.dataTask(with: request) { (data, _, error) in
+              let task = defaultSession.dataTask(with: request) { data, _, error in
                   if let error = error {
                     completion(.failure(.network(string: AppConstants.requestError + error.localizedDescription)))
                       return
-                  } else {
+                  }
+                  else {
                     if let data = data {
                     let value = FeedsModel.parseObject(data: data)
                     completion(value) }
                 }
-           }
+              }
         task.resume()
     }
 }

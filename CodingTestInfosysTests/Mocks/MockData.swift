@@ -5,8 +5,8 @@
 //  Copyright © 2020 Niranjan. All rights reserved.
 //
 
-import XCTest
 @testable import CodingTestInfosys
+import XCTest
 
 class MockData {
 
@@ -55,7 +55,8 @@ extension MockData {
         do {
             let data = try Data(contentsOf: url)
             return data
-        } catch {
+        }
+        catch {
             XCTFail("unable to read json")
             return nil
         }

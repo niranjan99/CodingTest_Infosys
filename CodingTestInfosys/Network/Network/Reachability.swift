@@ -28,6 +28,7 @@ let reachabilityStatusChangedNotification = "reachabilityStatusChangedNotificati
 enum ReachabilityType: CustomStringConvertible {
     case wwan
     case wiFi
+
     var description: String {
         switch self {
         case .wwan: return "WWAN"
@@ -40,6 +41,7 @@ enum ReachabilityStatus: CustomStringConvertible {
     case offline
     case online(ReachabilityType)
     case unknown
+
     var description: String {
         switch self {
         case .offline: return "Offline"
@@ -58,7 +60,8 @@ open class Reach {
             $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
                 SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
             }
-        }) else {
+        }
+            ) else {
             return .unknown
         }
         var flags: SCNetworkReachabilityFlags = []
@@ -66,22 +69,6 @@ open class Reach {
             return .unknown
         }
         return ReachabilityStatus(reachabilityFlags: flags)
-    }
-    func monitorReachabilityChanges() {
-        let host = "google.com"
-        var context = SCNetworkReachabilityContext(version: 0,
-                                                   info: nil,
-                                                   retain: nil,
-                                                   release: nil,
-                                                   copyDescription: nil)
-        let reachability = SCNetworkReachabilityCreateWithName(nil, host)!
-        SCNetworkReachabilitySetCallback(reachability, { (_, flags, _) in
-            let status = ReachabilityStatus(reachabilityFlags: flags)
-            NotificationCenter.default.post(name: Notification.Name(rawValue: reachabilityStatusChangedNotification),
-                object: nil,
-                userInfo: ["Status": status.description])
-            }, &context)
-        SCNetworkReachabilityScheduleWithRunLoop(reachability, CFRunLoopGetMain(), CFRunLoopMode.commonModes.rawValue)
     }
     func isNetworkReachable() -> Bool {
         let status = connectionStatus()
@@ -104,10 +91,12 @@ extension ReachabilityStatus {
         if !connectionRequired && isReachable {
             if isWWAN {
                 self = .online(.wwan)
-            } else {
+            }
+            else {
                 self = .online(.wiFi)
             }
-        } else {
+        }
+        else {
             self =  .offline
         }
     }

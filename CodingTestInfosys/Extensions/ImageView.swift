@@ -10,6 +10,7 @@ import UIKit
 
 var imageCache = [String: UIImage]()
    private let kLazyLoadMaxCacheImageSize = 20
+
 extension UIImageView {
        func cacheImage(_ image: UIImage, forURL url: String) {
            if imageCache.count > kLazyLoadMaxCacheImageSize { // free old images first.
@@ -17,20 +18,23 @@ extension UIImageView {
            }
            imageCache[url] = image
        }
-   public func downloadImageFromURL(_ urlString: String) {
+
+   public func downloadImageFromURL(urlString: String) {
     self.image = nil
            if let cachedImage = cachedImageForURL(urlString) {
                self.image = cachedImage
                return
-           } else {
+           }
+           else {
              self.image = UIImage(named: "placeholder")
             }
             if let url = URL(string: urlString) { // download from URL asynchronously
             let session = URLSession.shared
-            let downloadTask = session.downloadTask(with: url, completionHandler: { (retrievedURL, _, error) -> Void in
+            let downloadTask = session.downloadTask(with: url, completionHandler: { retrievedURL, _, error -> Void in
                 if error != nil {
-                    print(AppConstants.error + (url.absoluteString) + (error!.localizedDescription)) } else
-                    if retrievedURL != nil {
+                    print(AppConstants.error + (url.absoluteString) + (error!.localizedDescription))
+                }
+                else if retrievedURL != nil {
                     if let data = try? Data(contentsOf: retrievedURL!) {
                         if let image = UIImage(data: data) {
                             DispatchQueue.main.async(execute: {
@@ -38,12 +42,13 @@ extension UIImageView {
                                 self.cacheImage(image, forURL: url.absoluteString)
                                 self.image = downloadedImage
                             }
-                        })
+                        }
+                        )
                         }
                     }
                 }
-
-            })
+            }
+            )
             downloadTask.resume()
         }
     }

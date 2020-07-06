@@ -6,12 +6,13 @@
 //  Copyright © 2020 Niranjan. All rights reserved.
 //
 
-import XCTest
 @testable import CodingTestInfosys
+import XCTest
 
 class FactsViewModelTests: XCTestCase {
 
     var viewModel: FactsViewModel!
+
     override func setUp() {
         super.setUp()
         self.viewModel = FactsViewModel()
@@ -29,12 +30,13 @@ class FactsViewModelTests: XCTestCase {
                          XCTAssertEqual(response.title, "About Canada")
                          if let list = response.rows {
                              XCTAssertEqual(list.count, 14, "Expected 14 rates")
-                         } else {
+                         }
+                         else {
                              XCTAssert(false, "Expected valid ListModel")
                          }
                        case .failure:
                           XCTAssert(false, "ViewModel should not be able to fetch without service")
                        }
-                  }
+        }
           }
     }

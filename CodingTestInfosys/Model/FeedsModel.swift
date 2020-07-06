@@ -10,6 +10,7 @@ import Foundation
 struct FeedsModel: Codable {
     let title: String?
     let rows: [ListModel]?
+
     init(title: String?, rows: [ListModel]?) {
         self.title = title
         self.rows = rows
@@ -24,7 +25,8 @@ extension FeedsModel: Parceable {
             return Result.failure(ErrorResult.parser(string: AppConstants.parceError))  }
         if let result = try? decoder.decode(FeedsModel.self, from: data2) {
             return Result.success(result)
-        } else {
+        }
+        else {
             return Result.failure(ErrorResult.parser(string: AppConstants.parceError))
         }
     }

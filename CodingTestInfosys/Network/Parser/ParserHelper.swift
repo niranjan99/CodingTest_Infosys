@@ -31,7 +31,8 @@ final class ParserHelper {
             case .success(let newModel):
                 completion(.success(newModel))
             }
-        } else {
+        }
+        else {
             completion(.failure(.parser(string: "Error while parsing json data")))
         }
     }

@@ -4,8 +4,8 @@
 //  Created by Niranjan on 04/07/20.
 //  Copyright © 2020 Niranjan. All rights reserved.
 //
-import XCTest
 @testable import CodingTestInfosys
+import XCTest
 
 class FeedsModelTests: XCTestCase {
 
@@ -40,8 +40,8 @@ class FeedsModelTests: XCTestCase {
                 XCTAssertEqual(response.title, "About Canada", "Expected About Canada base")
                 if let list = response.rows {
                     XCTAssertEqual(list.count, 14, "Expected 14 rates")
-
-                } else {
+                }
+                else {
                     XCTAssert(false, "Expected valid ListModel")
                 }
             }

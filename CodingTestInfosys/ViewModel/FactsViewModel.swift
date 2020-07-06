@@ -24,8 +24,9 @@ final class FactsViewModel: NSObject {
                  case .failure(let response):
                     self.showError(AppConstants.dataError + response.localizedDescription)
                }
-            }
-     } else { self.showError(AppConstants.internetError) }
+       }
+     }
+     else { self.showError(AppConstants.internetError) }
        }
    }
 
@@ -43,8 +44,8 @@ final class FactsViewModel: NSObject {
            return feedData?.rows?.count ?? 0
            }
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.cellidentifier,
-                                                       for: indexPath) as? DataCell else { return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.cellidentifier, for: indexPath) as? DataCell else {
+            return UITableViewCell()
         }
         cell.setData = feedData?.rows?[indexPath.row]
         return cell
